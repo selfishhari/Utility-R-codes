@@ -129,26 +129,26 @@ preds_age=glm_onehot_2$fitted.values>0.5
 table(preds_age,train_one_hot$income)
 #insample 13.56
 
-glm_link_scores <- predict(glm_onehot_2, test_one_hot, type="link")
+#glm_link_scores <- predict(glm_onehot_2, test_one_hot, type="link")
 
 glm_response_scores  <- predict(glm_onehot_2, test_one_hot, type="response")
 
 
-glm_link_scores_fc <- predict(glm_onehot, test_one_hot, type="link")
+#glm_link_scores_fc <- predict(glm_onehot, test_one_hot, type="link")
 
-glm_response_scores_fc  <- predict(glm_onehot, test_one_hot, type="response")
+#glm_response_scores_fc  <- predict(glm_onehot, test_one_hot, type="response")
 
-preds_rocr_fc=glm_response_scores_fc>0.47
+#preds_rocr_fc=glm_response_scores_fc>0.47
 
-table(preds_rocr_fc,test_one_hot$income)
+#table(preds_rocr_fc,test_one_hot$income)
 #accu=0.8535
 #tpr=0.607
-library(pROC)
-plot(roc(test_one_hot$income, glm_response_scores),print.auc=TRUE,max.auc.polygon=TRUE,print.thres=TRUE)
+#library(pROC)
+#plot(roc(test_one_hot$income, glm_response_scores),print.auc=TRUE,max.auc.polygon=TRUE,print.thres=TRUE)
 
-preds_rocr=glm_response_scores>0.47
+#preds_rocr=glm_response_scores>0.47
 
-table(preds_rocr,test_one_hot$income)
+#table(preds_rocr,test_one_hot$income)
 #accu=0.8535
 #tpr=0.62177
 

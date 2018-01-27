@@ -31,3 +31,13 @@ simple_roc <- function(labels, scores){
   labels <- labels[order(scores, decreasing=TRUE)]
   data.frame(TPR=cumsum(labels)/sum(labels), FPR=cumsum(!labels)/sum(!labels), labels)
 }
+
+
+#plotting distributions
+zero_dist=data.frame(list(zero_dist=glm_response_scores[test_one_hot$income==0]))
+one_dist=data.frame(list(one_dist=glm_response_scores[test_one_hot$income==1]))
+library(ggplot2)
+ggplot(data=zero_dist, aes(zero_dist)) + geom_histogram(bins = 100)+geom_histogram(data=one_dist,aes(one_dist),fill='green',alpha=0.6,bins=100)
+
+
+
